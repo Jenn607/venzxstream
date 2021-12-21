@@ -62,8 +62,8 @@ async def vplay(c: Client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
-                InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data="cls"),
+                InlineKeyboardButton(text="🌐 Mᴇɴᴜ", callback_data="cbmenu"),
+                InlineKeyboardButton(text="🔄 Cʟᴏsᴇ", callback_data="cls"),
             ]
         ]
     )
@@ -76,21 +76,21 @@ async def vplay(c: Client, m: Message):
     a = await c.get_chat_member(chat_id, aing.id)
     if a.status != "administrator":
         await m.reply_text(
-            f"💡 To use me, I need to be an **Administrator** with the following **permissions**:\n\n» ❌ __Delete messages__\n» ❌ __Add users__\n» ❌ __Manage video chat__\n\nData is **updated** automatically after you **promote me**"
+            f"💡 kalo gunain gw,itu bot nya jadiin **Admin** yang mempunyai **izin**:\n\n» ❌ __Hapus pesan__\n» ❌ __Menambah Anggota__\n» ❌ __Mengelola Obrolan Suara__\n\nData is **updated** otomatis terupdate setelah lu **promote gw**"
         )
         return
     if not a.can_manage_voice_chats:
         await m.reply_text(
-            "missing required permission:" + "\n\n» ❌ __Manage video chat__"
+            "missing required permission:" + "\n\n» ❌ __Kelola Obrolan Suara__"
         )
         return
     if not a.can_delete_messages:
         await m.reply_text(
-            "missing required permission:" + "\n\n» ❌ __Delete messages__"
+            "missing required permission:" + "\n\n» ❌ __Hapus Pesan__"
         )
         return
     if not a.can_invite_users:
-        await m.reply_text("missing required permission:" + "\n\n» ❌ __Add users__")
+        await m.reply_text("missing required permission:" + "\n\n» ❌ __Menambah Anggota__")
         return
     try:
         ubot = (await user.get_me()).id
@@ -126,7 +126,7 @@ async def vplay(c: Client, m: Message):
 
     if replied:
         if replied.video or replied.document:
-            loser = await replied.reply("📥 **downloading video...**")
+            loser = await replied.reply("📥 **lagi download syg,sabar ya...**")
             dl = await replied.download()
             link = replied.link
             if len(m.command) < 2:
@@ -164,7 +164,7 @@ async def vplay(c: Client, m: Message):
                     amaze = MediumQualityVideo()
                 elif Q == 360:
                     amaze = LowQualityVideo()
-                await loser.edit("🔄 **Joining vc...**")
+                await loser.edit("🔄 **aku naik os nich...**")
                 await call_py.join_group_call(
                     chat_id,
                     AudioVideoPiped(
@@ -217,7 +217,7 @@ async def vplay(c: Client, m: Message):
                             )
                         else:
                             try:
-                                await loser.edit("🔄 **Joining vc...**")
+                                await loser.edit("🔄 **aku naik os nich...**")
                                 await call_py.join_group_call(
                                     chat_id,
                                     AudioVideoPiped(
@@ -274,7 +274,7 @@ async def vplay(c: Client, m: Message):
                         )
                     else:
                         try:
-                            await loser.edit("🔄 **Joining vc...**")
+                            await loser.edit("🔄 **akunaik os nich...**")
                             await call_py.join_group_call(
                                 chat_id,
                                 AudioVideoPiped(
@@ -304,8 +304,8 @@ async def vstream(c: Client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
-                InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data="cls"),
+                InlineKeyboardButton(text="🌐 Mᴇɴᴜ", callback_data="cbmenu"),
+                InlineKeyboardButton(text="🔄 Cʟᴏsᴇ", callback_data="cls"),
             ]
         ]
     )
@@ -318,21 +318,21 @@ async def vstream(c: Client, m: Message):
     a = await c.get_chat_member(chat_id, aing.id)
     if a.status != "administrator":
         await m.reply_text(
-            f"💡 To use me, I need to be an **Administrator** with the following **permissions**:\n\n» ❌ __Delete messages__\n» ❌ __Add users__\n» ❌ __Manage video chat__\n\nData is **updated** automatically after you **promote me**"
+            f"💡 kalo gunain gw,itu bot nya jadiin **Admin** yang mempunyai **izin**:\n\n» ❌ __Hapus pesan__\n» ❌ __Menambah Anggota__\n» ❌ __Mengelola Obrolan Suara__\n\nData is **updated** otomatis terupdate setelah lu **promote gw**"
         )
         return
     if not a.can_manage_voice_chats:
         await m.reply_text(
-            "missing required permission:" + "\n\n» ❌ __Manage video chat__"
+            "missing required permission:" + "\n\n» ❌ __Kelola Obrolan Suara__"
         )
         return
     if not a.can_delete_messages:
         await m.reply_text(
-            "missing required permission:" + "\n\n» ❌ __Delete messages__"
+            "missing required permission:" + "\n\n» ❌ __Hapus Pesan__"
         )
         return
     if not a.can_invite_users:
-        await m.reply_text("missing required permission:" + "\n\n» ❌ __Add users__")
+        await m.reply_text("missing required permission:" + "\n\n» ❌ __Menambah Anggota__")
         return
     try:
         ubot = (await user.get_me()).id
@@ -372,7 +372,7 @@ async def vstream(c: Client, m: Message):
         if len(m.command) == 2:
             link = m.text.split(None, 1)[1]
             Q = 720
-            loser = await c.send_message(chat_id, "🔄 **processing stream...**")
+            loser = await c.send_message(chat_id, "🔄 **Mau mulai nich syg...**")
         elif len(m.command) == 3:
             op = m.text.split(None, 1)[1]
             link = op.split(None, 1)[0]
@@ -384,7 +384,7 @@ async def vstream(c: Client, m: Message):
                 await m.reply(
                     "» __only 720, 480, 360 allowed__ \n💡 **now streaming video in 720p**"
                 )
-            loser = await c.send_message(chat_id, "🔄 **processing stream...**")
+            loser = await c.send_message(chat_id, "🔄 **mau mulai nih syg...**")
         else:
             await m.reply("**/vstream {link} {720/480/360}**")
 
@@ -416,7 +416,7 @@ async def vstream(c: Client, m: Message):
                 elif Q == 360:
                     amaze = LowQualityVideo()
                 try:
-                    await loser.edit("🔄 **Joining vc...**")
+                    await loser.edit("🔄 **aku udah mulai nih syg...**")
                     await call_py.join_group_call(
                         chat_id,
                         AudioVideoPiped(
